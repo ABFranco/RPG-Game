@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour {
 	public Text hpText;
 	public PlayerHealthManager playerHealth;
 
+	public Slider expBar;
+	private PlayerStats stats;
+	public Text levelUp;
+
 	private static bool uiExists;
 
 	// Use this for initialization
@@ -19,6 +23,7 @@ public class UIManager : MonoBehaviour {
 		} else {
 			Destroy (gameObject);
 		}
+		stats = GetComponent<PlayerStats> ();
 		
 	}
 	
@@ -27,5 +32,9 @@ public class UIManager : MonoBehaviour {
 		healthBar.maxValue = playerHealth.playerMaxHealth;
 		healthBar.value = playerHealth.playerCurrentHealth;
 		hpText.text = "HP: " + playerHealth.playerCurrentHealth + "/" + playerHealth.playerMaxHealth;
+
+		expBar.maxValue = stats.getNextExp();
+		expBar.value = stats.currentExp;
+		levelUp.text =  "Exp: " + stats.currentExp.ToString() + "/" + stats.nextExp.ToString() + "   Lvl: " + stats.currentLevel;
 	}
 }

@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   currentHealth: 0
+  experienceToGive: 25
 --- !u!212 &212656152135106290
 SpriteRenderer:
   m_ObjectHideFlags: 1
